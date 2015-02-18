@@ -25,7 +25,7 @@ def main():
     beeapi = beeminderpy.Beeminder(settings.BEEMINDER_AUTH_TOKEN)
 
     # deal with the date
-    #either privide a specific date 'yyyymmdd' or a delta '-2'
+    #either provide a specific date 'yyyymmdd' or a delta '-2'
     tdate = '-6'
     if len(sys.argv) > 1:
         tdate = sys.argv[1]
