@@ -15,7 +15,7 @@ class Beeminder:
         self.base_url = 'https://www.beeminder.com/api/v1'
 
     def get_user(self):
-        """Return user data string.
+        """Return user data JSON->Dict.
         """
 
         if debug:
@@ -27,7 +27,7 @@ class Beeminder:
         return result
 
     def get_goal(self):
-        """Return
+        """Return goal JSON->Dict
         """
 
         if debug:
@@ -39,7 +39,7 @@ class Beeminder:
         return result
 
     def get_datapoints(self):
-        """Return
+        """Return JSON->Dict
         """
 
         if debug:
@@ -51,15 +51,15 @@ class Beeminder:
         result = self.call_api(url, values, 'GET')
         return result
 
-    def create_datapoint(self, username, goalname, timestamp, value, comment=' ', sendmail='false'):
+    def create_datapoint(self, timestamp, value, comment=' ', sendmail='false'):
         """Return
         """
 
         if debug:
-            print "create_datapoint(username='%s', goalname='%s', timestamp='%s', value='%s', comment='%s', sendmail='%s')" % (username, goalname, timestamp, value, comment, sendmail)
+            print "create_datapoint(timestamp='%s', value='%s', comment='%s', sendmail='%s')" % (timestamp, value, comment, sendmail)
 
-        url = self.base_url + 'users/' + username + '/goals/' + goalname + '/datapoints.json'
-        url = "%s/users/%s/goals/%s/datapoints.json" % (self.base_url, username, goalname)
+        url = self.base_url + 'users/' + self.username + '/goals/' + self.goalname + '/datapoints.json'
+        url = "%s/users/%s/goals/%s/datapoints.json" % (self.base_url, self.username, self.goalname)
         values = {'auth_token': self.auth_token,
                   'timestamp': timestamp,
                   'value': value,
