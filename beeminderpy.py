@@ -4,13 +4,16 @@ import settings
 
 # based on https://www.beeminder.com/api
 
+debug = True
+
 class Beeminder:
     def __init__(self, this_auth_token=None):
         self.auth_token = this_auth_token
         self.base_url = 'https://www.beeminder.com/api/v1'
 
     def get_user(self, username=settings.BEEMINDER_USERNAME):
-        print "get_user(username='%s')" % username
+        if debug:
+            print "get_user(username='%s')" % username
 
         url = "%s/users/%s.json" % (self.base_url, username)
         values = {'auth_token': self.auth_token}
@@ -18,7 +21,8 @@ class Beeminder:
         return result
 
     def get_goal(self, username, goalname):
-        print "get_goal(username='%s', goalname='%s')" % (username, goalname)
+        if debug:
+            print "get_goal(username='%s', goalname='%s')" % (username, goalname)
 
         url = "%s/users/%s/goals/%s.json" % (self.base_url, username, goalname)
         values = {'auth_token': self.auth_token}
@@ -26,7 +30,8 @@ class Beeminder:
         return result
 
     def get_datapoints(self, username, goalname):
-        print "get_datapoints(username='%s', goalname='%s')" % (username, goalname)
+        if debug:
+            print "get_datapoints(username='%s', goalname='%s')" % (username, goalname)
 
         url = self.base_url + 'users/' + username + '/goals/' + goalname + '/datapoints.json'
         url = "%s/users/%s/goals/%s/datapoints.json" % (self.base_url, username, goalname)
@@ -35,6 +40,9 @@ class Beeminder:
         return result
 
     def create_datapoint(self, username, goalname, timestamp, value, comment=' ', sendmail='false'):
+        if debug:
+            print "create_datapoint(username='%s', goalname='%s', timestamp='%s', value='%s', comment='%s', sendmail='%s')" % (username, goalname, timestamp, value, comment, sendmail)
+
         url = self.base_url + 'users/' + username + '/goals/' + goalname + '/datapoints.json'
         url = "%s/users/%s/goals/%s/datapoints.json" % (self.base_url, username, goalname)
         values = {'auth_token': self.auth_token,
@@ -46,7 +54,8 @@ class Beeminder:
         return result
 
     def call_api(self, url, values, method='GET'):
-        print "call_api(url='%s', values='%s', method='%s')" % (url, values, method)
+        if debug:
+            print "call_api(url='%s', values='%s', method='%s')" % (url, values, method)
 
         result = ''
         data = urllib.urlencode(values)
