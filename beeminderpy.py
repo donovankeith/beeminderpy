@@ -68,7 +68,7 @@ class Beeminder:
     def call_api(self, url, values, method='GET'):
         """Return
         """
-        
+
         if debug:
             print "call_api(url='%s', values='%s', method='%s')" % (url, values, method)
 
