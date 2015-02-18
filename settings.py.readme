@@ -2,6 +2,7 @@
 # https://www.beeminder.com/api
 BEEMINDER_USERNAME='username'
 BEEMINDER_AUTH_TOKEN='token'
+BEEMINDER_GOALNAME='goal'
 
 
 #for fitbit value, look here for help : 

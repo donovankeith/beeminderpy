@@ -15,7 +15,7 @@ import time
 import sys
 
 def main():
-    bm = beeminderpy.Beeminder(goalname=settings.BEEMINDER_GOAL_NAME)
+    bm = beeminderpy.Beeminder(goalname=settings.BEEMINDER_GOALNAME)
     user_data = bm.get_user()
     goal_data = bm.get_goal()
     data_points = bm.get_datapoints()
