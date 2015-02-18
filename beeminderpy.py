@@ -12,6 +12,9 @@ class Beeminder:
         self.base_url = 'https://www.beeminder.com/api/v1'
 
     def get_user(self, username=settings.BEEMINDER_USERNAME):
+        """Return user data string.
+        """
+
         if debug:
             print "get_user(username='%s')" % username
 
@@ -21,6 +24,9 @@ class Beeminder:
         return result
 
     def get_goal(self, username, goalname):
+        """Return
+        """
+
         if debug:
             print "get_goal(username='%s', goalname='%s')" % (username, goalname)
 
@@ -30,6 +36,9 @@ class Beeminder:
         return result
 
     def get_datapoints(self, username, goalname):
+        """Return
+        """
+
         if debug:
             print "get_datapoints(username='%s', goalname='%s')" % (username, goalname)
 
@@ -40,6 +49,9 @@ class Beeminder:
         return result
 
     def create_datapoint(self, username, goalname, timestamp, value, comment=' ', sendmail='false'):
+        """Return
+        """
+
         if debug:
             print "create_datapoint(username='%s', goalname='%s', timestamp='%s', value='%s', comment='%s', sendmail='%s')" % (username, goalname, timestamp, value, comment, sendmail)
 
@@ -54,6 +66,9 @@ class Beeminder:
         return result
 
     def call_api(self, url, values, method='GET'):
+        """Return
+        """
+        
         if debug:
             print "call_api(url='%s', values='%s', method='%s')" % (url, values, method)
 
